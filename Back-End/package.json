@@ -1,0 +1,23 @@
+{
+    "name": "back-end",
+    "version": "1.0.0",
+    "description": "! this folder just have a for back-end files",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "proj": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@googlemaps/google-maps-services-js": "^3.3.26",
+        "cookie-parser": "^1.4.6",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "express-session": "^1.17.3",
+        "mysql": "^2.18.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
+}
