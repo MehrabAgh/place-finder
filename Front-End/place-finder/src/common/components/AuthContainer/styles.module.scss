@@ -1,0 +1,16 @@
+@import "../../colors.scss";
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    >.into {
+        width: calc(100% - 10px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $primary;
+        border-radius: 5px;
+    }
+}
