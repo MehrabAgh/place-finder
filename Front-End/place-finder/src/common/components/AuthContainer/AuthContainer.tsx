@@ -11,7 +11,9 @@ export default function AuthContainer({
     return (
         <RootLayout>
             <div className={styles.container} style={style ?? {}}>
-                <div className={styles.into}>{children ?? ""}</div>
+                <div className={styles.into}>
+                    {children ?? ""}
+                </div>
             </div>
         </RootLayout>
     );

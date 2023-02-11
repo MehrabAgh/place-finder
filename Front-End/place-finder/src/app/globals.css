@@ -50,5 +50,11 @@ table {
 	border-spacing: 0;
 }
 *{
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+  font-family: Yekan !important;
+  user-select: none;
+}
+
+b{
+	font-weight: bold;
 }

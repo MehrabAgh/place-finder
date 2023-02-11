@@ -1,0 +1,93 @@
+@import "../../colors.scss";
+
+.overlay {
+    background: transparentize($color: $gray, $amount: 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: forwards 0.4s fadeIn;
+    > .modalContainer {
+        width: 100%;
+        max-width: 400px;
+        height: fit-content;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        background-color: $white;
+        border-radius: 8px;
+        border: 2px solid $primary;
+        box-sizing: border-box;
+        animation: forwards 0.5s scaleIn cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        > .title {
+            width: calc(100% - 10px);
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $secondary;
+            background-color: transparentize($color: $primary, $amount: 0.82);
+            font-size: 1.1em;
+            > .icon {
+                opacity: 1;
+                margin-left: 4px;
+                font-size: 24px;
+            }
+        }
+        > .content {
+            width: 100%;
+            padding: 10px;
+            margin: 5px;
+            direction: rtl;
+        }
+        > .action {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+
+            > button {
+                width: 30%;
+                margin: 0;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
