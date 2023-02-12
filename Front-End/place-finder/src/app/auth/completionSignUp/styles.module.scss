@@ -1,0 +1,67 @@
+@import "../../../common/colors.scss";
+
+.rootContainer {
+    width: 100%;
+    max-width: 400px;
+    height: fit-content;
+    border: 2px solid $primary;
+    border-radius: 8px;
+    transition: height 1s;
+
+    > .top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0 0 0;
+        // background-color: black;
+        > .icon {
+            font-size: 5em;
+            color: $primary;
+        }
+        > .title {
+            color: $primary;
+            // background-color: $red;
+            padding: 2px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    }
+    > .bottom {
+        max-height: 300px;
+        overflow: auto;
+        transition: height 1s;
+
+        > .container {
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 40px;
+            > .phoneNumber {
+                width: 100%;
+                display: flex;
+                position: relative;
+                // right: 400px;
+                transition: right 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                > .prefix {
+                    display: flex;
+                    align-items: center;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 2px 5px;
+                    margin: 5px 5px 5px 0;
+                    justify-content: center;
+                    border: 1px solid $secondary;
+                    color: $secondary;
+                }
+                > .textInput {
+                    width: 100%;
+                    letter-spacing: 2px;
+                    margin-right: 0;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

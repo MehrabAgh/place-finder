@@ -15,14 +15,18 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { GrStatusGood } from "react-icons/gr";
 import MyModal from "@/common/components/MyModal/MyModal";
-import VerifyModal, { VerifyStatusType } from "@/common/components/VerifyModal/VerifyModal";
+import VerifyModal, {
+    VerifyStatusType,
+} from "@/common/components/VerifyModal/VerifyModal";
+import Link from "next/link";
 
 export default function Page() {
     const [loginMode, setLoginMode] = React.useState<"email" | "phoneNumber">(
         "phoneNumber"
     );
     const [showModal, setShowModal] = React.useState<boolean>(false);
-    const [verifyStatus,setVerifyStatus] = React.useState<VerifyStatusType>("nothing");
+    const [verifyStatus, setVerifyStatus] =
+        React.useState<VerifyStatusType>("nothing");
 
     const handleToggleLoginTypeBtn = (e: React.MouseEvent) => {
         setLoginMode(loginMode === "email" ? "phoneNumber" : "email");
@@ -32,7 +36,7 @@ export default function Page() {
     return (
         <Layout>
             <AuthContainer>
-                <div className={styles.login}>
+                <div className={styles.container}>
                     <div className={styles.top}>
                         <Image
                             alt="a"
@@ -101,18 +105,28 @@ export default function Page() {
                             ورود با{" "}
                             {loginMode === "email" ? "شماره موبایل" : "ایمیل"}
                         </LinkStyleButton>
+
+                        <Link
+                            href="/auth/signUp"
+                            style={{ marginTop: 15, fontSize: 12 }}
+                        >
+                            !حساب کاربری ندارم
+                        </Link>
                     </div>
                 </div>
                 <VerifyModal
                     isShow={showModal}
-                    onCheckBtn={(e,v) => {
-                        // setShowModal(false);
-                        // setVerifyStatus("correct")
-                        alert("clicked!")
+                    onCheckBtn={(e, v) => {
+                        // const values
+                        setVerifyStatus("correct");
                     }}
                     verifyStatus={verifyStatus}
                 />
             </AuthContainer>
         </Layout>
     );
+}
+
+function getRndInteger(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

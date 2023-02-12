@@ -15,8 +15,9 @@ const colors = {
     gray: "#577590",
 };
 
+
 const TextInput = styled.input<{ inValid?: boolean }>`
-width: 100%;
+    width: 100%;
     border-width: 1px;
     border-style: solid;
     border-color: ${props => (props.inValid ? colors.red : colors.primary)};
@@ -35,7 +36,33 @@ width: 100%;
             ${props => (props.inValid ? colors.red : colors.primary)};
     }
 
-    &::placeholder{
+    &::placeholder {
+        color: ${colors.gray};
+        opacity: 0.6;
+    }
+`;
+
+export const Select = styled.select<{ inValid?: boolean }>`
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${props => (props.inValid ? colors.red : colors.primary)};
+    outline: none;
+    border-radius: 5px;
+    padding: 2px 9px;
+    margin: 5px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 0 0 0px
+        ${props => (props.inValid ? colors.red : colors.primary)};
+    transition: box-shadow 0.1s;
+
+    font-size: 15px;
+    &:focus {
+        box-shadow: 0 0 0 1px
+            ${props => (props.inValid ? colors.red : colors.primary)};
+    }
+
+    &::placeholder {
         color: ${colors.gray};
         opacity: 0.6;
     }
@@ -64,7 +91,14 @@ export const Button = styled.button<IButton>`
         filter: saturate(1.8);
     }
 
-    &:disabled{
+    &:focus {
+        cursor: pointer;
+        background-color: ${props => colors[props.typeMode ?? "primary"]};
+        filter: saturate(1.8);
+        box-shadow: 0 0 0px 2px ${colors.primary};
+    }
+
+    &:disabled {
         filter: grayscale(100%);
         cursor: no-drop;
     }
@@ -85,7 +119,7 @@ export const LinkStyleButton = styled.button<IButton>`
     font-weight: bolder;
     transition: filter 0.2s;
     letter-spacing: normal;
-    
+
     &:hover {
         cursor: pointer;
         text-decoration: underline;

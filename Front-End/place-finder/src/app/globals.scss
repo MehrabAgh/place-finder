@@ -1,5 +1,5 @@
 @import url('https://v1.fontapi.ir/css/Yekan');
-
+@import "../common/colors.scss";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -53,8 +53,30 @@ table {
   box-sizing: border-box !important;
   font-family: Yekan !important;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 b{
 	font-weight: bold;
+}
+
+a{
+	font-size: 15px;
+	color: $primary;
+	text-decoration: none;
+	&:active{
+		
+	color: $primary;
+	text-decoration: none;
+	}
+	&:visited{
+		
+	color: $primary;
+	text-decoration: none;
+	}
+	&:hover{
+		
+	color: $primary;
+	text-decoration: underline;
+	}
 }

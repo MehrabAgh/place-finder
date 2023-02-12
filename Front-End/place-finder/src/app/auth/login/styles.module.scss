@@ -1,6 +1,6 @@
 @import "../../../common/colors.scss";
 
-.login {
+.container {
     width: 100%;
     max-width: 400px;
     height: fit-content;
@@ -13,7 +13,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 25px 0 0 0;
+        padding: 20px 0 0 0;
         // background-color: black;
         > .image {
             height: 150px;
@@ -31,7 +31,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 40px;
+        padding: 30px 40px;
         overflow: hidden;
         transition: height 1s;
         > .tip {
@@ -40,6 +40,7 @@
             font-size: 12px;
             padding: 5px;
             color: $gray;
+            text-align: justify;
         }
 
         > .phoneNumber {
@@ -65,13 +66,13 @@
                 margin-right: 0;
             }
         }
-        >.email{
+        > .email {
             width: 100%;
             display: flex;
             position: relative;
             justify-content: center;
             transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            >.textInput{
+            > .textInput {
                 margin: 0;
             }
         }
