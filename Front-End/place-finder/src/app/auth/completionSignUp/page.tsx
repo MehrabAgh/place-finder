@@ -14,6 +14,7 @@ import {
 import { FaRegIdCard } from "react-icons/fa";
 import Link from "next/link";
 import LabeledInput from "@/common/components/LabeledInput/LabeledInput";
+import LabeledSelect from "@/common/components/LabeledSelect/LabeledSelect";
 
 type Props = {};
 
@@ -46,7 +47,12 @@ export default function Page({}: Props) {
                                 placeholder="example@mail.com ایمیل"
                                 labelText="ایمیل"
                             />
-
+                            <LabeledSelect labelText="شهر">
+                                <option>تهران</option>
+                                <option>شیراز</option>
+                                <option>اصفهان</option>
+                                <option>گنبدکاووس</option>
+                            </LabeledSelect>
                             <Button
                                 onClick={() => {
                                     // setShowModal(true);

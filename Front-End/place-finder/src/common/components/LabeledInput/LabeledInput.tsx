@@ -43,17 +43,14 @@ export default function LabeledInput(props: IProps) {
       }
     }
 
-    React.useEffect(() => {
-        console.log(isFocus);
-    }, [isFocus]);
 
     return (
         <div className={styles.container} style={containerStyle}>
             <label className={isFocus?"":styles.hidden}>{labelText}</label>
             <TextInput
+                {...inputProps}
                 inValid={invalid}
                 className={styles.textInput}
-                {...inputProps}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChange={handleChange}
