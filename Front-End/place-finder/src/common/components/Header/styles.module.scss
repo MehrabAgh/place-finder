@@ -1,0 +1,46 @@
+@import "../../colors.scss";
+
+header.container {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    // background-color: red;
+    border-bottom: 1px solid transparentize($color: $gray, $amount: 0.6);
+    // padding: 8px;
+    > .content {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        max-width: 1440px;
+        padding: 0 16px;
+        > .left {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            > .newAdBtn {
+                height: 80%;
+            }
+
+            > .otherBtn {
+                height: 90%;
+                background-color: transparent;
+                color: $gray;
+                transition: 0.2s background-color;
+                flex-basis: content;
+                font-size: 12px;
+                &:hover {
+                    background-color: transparentize(
+                        $color: $gray,
+                        $amount: 0.9
+                    );
+                }
+            }
+
+            > button > .icon {
+                display: flex;
+                align-items: center;
+                margin: 0 5px;
+            }
+        }
+    }
+}

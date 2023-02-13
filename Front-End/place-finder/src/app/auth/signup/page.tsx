@@ -34,7 +34,6 @@ export default function Page() {
     }, [signUpMode]);
 
     return (
-        <Layout>
             <AuthContainer>
                 <div className={styles.container}>
                     <div className={styles.top}>
@@ -66,6 +65,7 @@ export default function Page() {
                             <TextInput
                                 className={styles.textInput}
                                 placeholder="9120000000"
+                                disabled={signUpMode !== "phoneNumber"}
                             />
                         </div>
                         <div
@@ -81,6 +81,7 @@ export default function Page() {
                             <TextInput
                                 placeholder="example@mail.com"
                                 className={styles.textInput}
+                                disabled={signUpMode !== "email"}
                             />
                         </div>
                         <Button
@@ -105,7 +106,7 @@ export default function Page() {
                                 direction: "rtl",
                             }}
                         >
-                            حساب کاربری دارم می خواهم وارد شوم.
+                            حساب کاربری دارم می خواهم وارد بشم.
                         </Link>
                     </div>
                 </div>
@@ -121,6 +122,5 @@ export default function Page() {
                     verifyStatus={verifyStatus}
                 />
             </AuthContainer>
-        </Layout>
     );
 }

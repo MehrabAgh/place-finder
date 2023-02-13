@@ -1,82 +1,185 @@
-@import url('https://v1.fontapi.ir/css/Yekan');
+// @import url("https://v1.fontapi.ir/css/Yekan");
+
+// @font-face {
+//     font-family: "Yekan";
+//     src: url("https://cdn.fontcdn.ir/Fonts/Yekan/1cdce741b89d94b75c1b52dfbfc7bc3b1eb1a8d2ecb9da71753e17219a1b8057.woff2")
+//         format("woff2");
+//     font-weight: 400;
+//     font-style: normal;
+//     unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0, U+A9,
+//         U+AB, U+BB, U+609, U+60C, U+61B, U+61F, U+621-624, U+626-63A, U+641-642,
+//         U+644-648, U+64B-64D, U+651, U+654, U+66A-66C, U+67E, U+686, U+698,
+//         U+6A9, U+6AF, U+6CC, U+6F0-6F9, U+200E, U+2010-2011, U+2026, U+2030,
+//         U+2039-203A, U+20AC, U+2212;
+// }
+// @font-face {
+//     font-family: "Yekan";
+//     src: url("https://cdn.fontcdn.ir/Fonts/Yekan/8b3d4ccc94807967874f481b0ea82d0f26cda739c2fad3b923f28d8915af064f.woff2")
+//         format("woff2");
+//     font-weight: 700;
+//     font-style: normal;
+// }
+@import url('https://v1.fontapi.ir/css/Vazir');
 @import "../common/colors.scss";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
 body {
-	line-height: 1;
-  /* background-color: black; */
+    line-height: 1;
+    font-size: 12pt;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    color: transparentize($color: $gray, $amount: 0.2);
+    /* background-color: black; */
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+    list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+    quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-*{
-  box-sizing: border-box !important;
-  font-family: Yekan !important;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-b{
-	font-weight: bold;
+* {
+    box-sizing: border-box !important;
+    font-family:  Vazir !important;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-a{
-	font-size: 15px;
-	color: $primary;
-	text-decoration: none;
-	&:active{
-		
-	color: $primary;
-	text-decoration: none;
-	}
-	&:visited{
-		
-	color: $primary;
-	text-decoration: none;
-	}
-	&:hover{
-		
-	color: $primary;
-	text-decoration: underline;
-	}
+b {
+    font-weight: bold;
+}
+
+a {
+    font-size: 15px;
+    color: $primary;
+    text-decoration: none;
+    &:active {
+        color: $primary;
+        text-decoration: none;
+    }
+    &:visited {
+        color: $primary;
+        text-decoration: none;
+    }
+    &:hover {
+        color: $primary;
+        text-decoration: underline;
+    }
 }

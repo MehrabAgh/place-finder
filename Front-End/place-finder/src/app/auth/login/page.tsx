@@ -34,96 +34,95 @@ export default function Page() {
     };
 
     return (
-        <Layout>
-            <AuthContainer>
-                <div className={styles.container}>
-                    <div className={styles.top}>
-                        <Image
-                            alt="a"
-                            src="/icons/login icon.svg"
-                            width={200}
-                            height={200}
-                            className={styles.image}
-                        />
-                        <h1 className={styles.title}>ورود به حساب کاربری</h1>
-                    </div>
-                    <div className={styles.bottom}>
-                        <p className={styles.tip}>
-                            برای استفاده از امکانات اپلیکیشن، لطفاً{" "}
-                            {loginMode === "phoneNumber" ? (
-                                <>
-                                    شماره موبایل
-                                    <BsTelephoneFill size={16} />
-                                </>
-                            ) : (
-                                <>
-                                    ایمیل <MdEmail size={16} />
-                                </>
-                            )}{" "}
-                            خود را وارد کنید
-                        </p>
-                        <div
-                            className={styles.phoneNumber}
-                            style={{
-                                right: loginMode === "phoneNumber" ? 0 : 500,
-                                height:
-                                    loginMode === "phoneNumber"
-                                        ? "max-content"
-                                        : "0",
-                            }}
-                        >
-                            <div className={styles.prefix}>+98</div>
-                            <TextInput
-                                className={styles.textInput}
-                                placeholder="9120000000"
-                            />
-                        </div>
-                        <div
-                            className={styles.email}
-                            style={{
-                                left: loginMode === "email" ? 0 : 500,
-                                height:
-                                    loginMode === "email" ? "max-content" : "0",
-                            }}
-                        >
-                            <TextInput
-                                placeholder="example@mail.com"
-                                className={styles.textInput}
-                            />
-                        </div>
-                        <Button
-                            onClick={() => {
-                                setShowModal(true);
-                            }}
-                        >
-                            تایید
-                        </Button>
-                        <LinkStyleButton
-                            style={{ marginTop: 15 }}
-                            onClick={handleToggleLoginTypeBtn}
-                        >
-                            ورود با{" "}
-                            {loginMode === "email" ? "شماره موبایل" : "ایمیل"}
-                        </LinkStyleButton>
-
-                        <Link
-                            href="/auth/signUp"
-                            style={{ marginTop: 15, fontSize: 12 }}
-                        >
-                            !حساب کاربری ندارم
-                        </Link>
-                    </div>
+        <AuthContainer>
+            <div className={styles.container}>
+                <div className={styles.top}>
+                    <Image
+                        alt="a"
+                        src="/icons/login icon.svg"
+                        width={200}
+                        height={200}
+                        className={styles.image}
+                    />
+                    <h1 className={styles.title}>ورود به حساب کاربری</h1>
                 </div>
-                <VerifyModal
-                    isShow={showModal}
-                    onCheckBtn={(e, v) => {
-                        // const values
-                        setVerifyStatus("correct");
-                    }}
-                    verifyStatus={verifyStatus}
-                />
-            </AuthContainer>
-        </Layout>
+                <div className={styles.bottom}>
+                    <p className={styles.tip}>
+                        برای استفاده از امکانات اپلیکیشن، لطفاً{" "}
+                        {loginMode === "phoneNumber" ? (
+                            <>
+                                شماره موبایل
+                                <BsTelephoneFill size={16} />
+                            </>
+                        ) : (
+                            <>
+                                ایمیل <MdEmail size={16} />
+                            </>
+                        )}{" "}
+                        خود را وارد کنید
+                    </p>
+                    <div
+                        className={styles.phoneNumber}
+                        style={{
+                            right: loginMode === "phoneNumber" ? 0 : 500,
+                            height:
+                                loginMode === "phoneNumber"
+                                    ? "max-content"
+                                    : "0",
+                        }}
+                    >
+                        <div className={styles.prefix}>+98</div>
+                        <TextInput
+                            className={styles.textInput}
+                            placeholder="9120000000"
+                            disabled={loginMode !== "phoneNumber"}
+                        />
+                    </div>
+                    <div
+                        className={styles.email}
+                        style={{
+                            left: loginMode === "email" ? 0 : 500,
+                            height: loginMode === "email" ? "max-content" : "0",
+                        }}
+                    >
+                        <TextInput
+                            placeholder="example@mail.com"
+                            className={styles.textInput}
+                            disabled={loginMode !== "email"}
+                        />
+                    </div>
+                    <Button
+                        onClick={() => {
+                            setShowModal(true);
+                        }}
+                    >
+                        تایید
+                    </Button>
+                    <LinkStyleButton
+                        style={{ marginTop: 15 }}
+                        onClick={handleToggleLoginTypeBtn}
+                    >
+                        ورود با{" "}
+                        {loginMode === "email" ? "شماره موبایل" : "ایمیل"}
+                    </LinkStyleButton>
+
+                    <Link
+                        href="/auth/signUp"
+                        style={{ marginTop: 15, fontSize: 12 }}
+                    >
+                        !حساب کاربری ندارم
+                    </Link>
+                </div>
+            </div>
+            <VerifyModal
+                isShow={showModal}
+                onCheckBtn={(e, v) => {
+                    // const values
+                    setVerifyStatus("correct");
+                }}
+                verifyStatus={verifyStatus}
+            />
+        </AuthContainer>
     );
 }
 

@@ -1,0 +1,123 @@
+@import "../common/colors.scss";
+
+.rootContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: $red;
+    > .into {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        > .logo {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            // ! Temporary styles
+            font-size: 1.8em;
+            text-align: center;
+            line-height: 40px;
+            color: $primary;
+            border: 3px $primary solid;
+        }
+        > .links {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
+            // gap: 50px;
+            border-bottom: 1px solid transparentize($color: $gray, $amount: 0.4);
+            padding: 10px;
+            > .item {
+                text-decoration: none;
+                font-size: 14px;
+                color: transparentize($color: $gray, $amount: 0.2);
+                &:hover {
+                    color: transparentize($color: $gray, $amount: 0);
+                }
+            }
+        }
+        > .someDescription {
+            width: 100%;
+            direction: rtl;
+            text-align: center;
+            margin-top: 20px;
+            padding: 0 10px;
+            // color: transparentize($color: $gray, $amount: 0.4);
+            line-height: 2em;
+        }
+        > .search {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            border: 1px solid transparentize($color: $gray, $amount: 0.4);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            > .inputSearch {
+                width: 100% !important;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                box-shadow: 0;
+                direction: rtl;
+                font-size: 18px;
+                padding: 4px 6px;
+            }
+            > .icon {
+                width: 40px;
+                height: 100%;
+                background-color: #fff;
+                padding: 1px 8px;
+            }
+        }
+
+        > .searchFocus {
+            box-shadow: 0 0 0 1px $primary;
+        }
+
+        > .someCity {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            > .item {
+                width: 120px;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-color: white;
+                border-style: solid;
+                border-left-width: 1px;
+                border-bottom-width: 1px;
+                // background-color: red;
+                &:hover {
+                    background-color: transparentize(
+                        $color: $gray,
+                        $amount: 0.7
+                    );
+                }
+            }
+        }
+
+        > .socialMedia {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 30px;
+            > .item {
+                font-size: 1.4em;
+            }
+        }
+    }
+}
