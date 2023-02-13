@@ -10,11 +10,12 @@ exports.sendemail = (...param) => {
 
         con.query('UPDATE users SET ? WHERE Email ="' + param[2] + '"', data, function(err, result) {
             if (err) throw err
-
-            console.log(result)
+            if (result.length > 0)
+                console.log(result)
         })
 
-        param[1].send("کد فعال سازی به ایمیل شما ارسال شد")
+        param[1].json({ message: "کد فعال سازی به ایمیل شما ارسال شد" })
 
-    } else param[1].send("مشکلی در سامانه به وجود آمد ، دوباره تلاش کنید")
+    } else param[1].json({ message: "مشکلی در سامانه به وجود آمد ، دوباره تلاش کنید" })
+
 }

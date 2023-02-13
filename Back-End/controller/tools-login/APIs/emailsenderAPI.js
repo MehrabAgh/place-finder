@@ -7,6 +7,8 @@ const VerifyEmail = (email, token) => {
 
     let mail = nodemailer.createTransport({
         service: 'gmail',
+        host: "smtp.gmail.com",
+
         auth: {
             user: 'aghaeemehrab@gmail.com', // Your email id
             pass: 'mehrab1381' // Your password
@@ -14,10 +16,10 @@ const VerifyEmail = (email, token) => {
     });
 
     let mailOptions = {
-        from: '[email protected]',
+        from: process.env.EMAIL,
         to: _email,
-        subject: 'Email verification - PlaceFinder',
-        html: '<p>You requested for email verification, kindly use this <a href="http://localhost:3000/verify-email?token=' + _token + '">link</a> to verify your email address</p>'
+        subject: 'ایمیل فعال سازی | تیم توسعه دهندگان وینو ',
+        html: '<p> کد فعال سازی ارسالی شما جهت ورود به اپلیکیشن placeFinder"' + _token + '" می باشد</p>'
 
     };
 

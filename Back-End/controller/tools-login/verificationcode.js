@@ -1,6 +1,11 @@
 const con = require("../../config/database")
+const redis = require('redis');
 
-exports.verify = (req, res) => {
+const client = redis.createClient();
+
+exports.verify = async(req, res) => {
+
+    await client.connect()
 
     let session = req.session;
 
@@ -14,18 +19,33 @@ exports.verify = (req, res) => {
                     Verify: 1
                 }
                 if (res.type == "email") {
-                    con.query('UPDATE users SET ? WHERE Email ="' + result[0].Email + '"', data, function(_err, _result) {
+                    con.query('UPDATE users SET ? WHERE Email ="' + result[0].Email + '"', data, async function(_err, _result) {
                         if (_err) throw _err;
 
                         session.user = true;
-                        res.json({ userVerified: session.user })
+                        session.email = result[0].Email;
+
+                        let dataResult = { userVerified: session.user, emailUser: session.email }
+
+                        await client.set('userCache', JSON.stringify(dataResult));
+                        await client.expire('userCache', 86400);
+
+                        res.json(dataResult)
                     })
                 } else {
-                    con.query('UPDATE users SET ? WHERE PhoneNumber ="' + result[0].PhoneNumber + '"', data, function(_err, _result) {
+                    con.query('UPDATE users SET ? WHERE PhoneNumber ="' + result[0].PhoneNumber + '"', data, async function(_err, _result) {
                         if (_err) throw _err;
 
                         session.user = true;
-                        res.json({ userVerified: session.user })
+                        session.PhoneNumber = result[0].PhoneNumber;
+                        req.session.save();
+
+                        let dataResult = { userVerified: session.user, PhoneNumberUser: session.PhoneNumber }
+
+                        await client.set('userCache', JSON.stringify(dataResult));
+                        await client.expire('userCache', 86400);
+
+                        res.json(dataResult)
 
                     })
                 }

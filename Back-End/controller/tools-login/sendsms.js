@@ -14,7 +14,7 @@ exports.sendsms = (...param) => {
             console.log(result)
         })
 
-        param[1].send("کد فعال سازی به شماره تماس ارسال شد")
+        param[1].json({ message: "کد فعال سازی به شماره تماس ارسال شد" })
 
-    } else param[1].send("مشکلی در سامانه به وجود آمد ، دوباره تلاش کنید")
+    } else param[1].json({ message: "مشکلی در سامانه به وجود آمد ، دوباره تلاش کنید" })
 }

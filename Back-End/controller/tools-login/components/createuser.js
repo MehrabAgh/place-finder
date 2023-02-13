@@ -2,11 +2,22 @@ const con = require("../../../config/database");
 const Model = require("../../../models/users");
 const { sendsms } = require("../sendsms");
 const { CheckInput } = require("../other/checkinputs");
+const redis = require('redis');
 
-exports.CreateUser = (req, res, inp) => {
+const client = redis.createClient();
+
+(async() => {
+    await client.connect()
+})();
+
+
+exports.CreateUser = async(req, res, inp) => {
     let state = CheckInput(inp)
-    console.log(state)
-    let model = new Model(null, " ", " ", !state ? inp : " ", state ? inp : " ", 'defualt', ' ')
+    const city = await client.get('cityCache');
+
+    let model = new Model(null, " ", " ", !state ? inp : " ", state ? inp : " ", 'defualt',
+        city != null || city != " " ? city : "")
+
     let data = [
         model.firstname,
         model.lastname,
