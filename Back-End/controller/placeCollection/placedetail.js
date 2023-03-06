@@ -1,5 +1,5 @@
-const con = require("../config/database");
-const userInfo = require("./userInfo");
+const con = require("../../config/database");
+const userInfo = require("../userCollection/userInfo");
 
 
 const placedetail = (req, res) => {

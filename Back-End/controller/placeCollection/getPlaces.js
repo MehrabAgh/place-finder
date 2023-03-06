@@ -1,4 +1,4 @@
-const con = require("../config/database");
+const con = require("../../config/database");
 
 async function getPlace(city) {
     if (city != "") {

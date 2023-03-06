@@ -1,5 +1,5 @@
 const redis = require('redis');
-const con = require('../config/database');
+const con = require('../../config/database');
 const userInfo = require('./userInfo');
 
 const client = redis.createClient();

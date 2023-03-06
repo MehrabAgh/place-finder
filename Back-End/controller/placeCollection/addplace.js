@@ -1,5 +1,5 @@
-const userInfo = require('./userInfo');
-const con = require('../config/database');
+const userInfo = require('../userInfo');
+const con = require('../../config/database');
 
 const addPlace = async(req, res) => {
 
