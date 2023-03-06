@@ -1,6 +1,6 @@
 //function for send email component
 const randtoken = require('rand-token');
-const con = require("../../../config/database");
+const con = require("../../../../config/database");
 const { CreateUser } = require("./createuser");
 const { sendemail } = require("../sendemail");
 const redis = require('redis');

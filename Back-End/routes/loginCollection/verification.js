@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const verifyController = require("../../controller/tools-login/verificationcode");
+const verifyController = require("../../controller/tools/tools-login/verificationcode");
 
 const router = new Router()
 

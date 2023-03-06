@@ -1,4 +1,4 @@
-const userInfo = require('../userInfo');
+const userInfo = require('../userCollection/userInfo');
 const con = require('../../config/database');
 
 const addPlace = async(req, res) => {
@@ -18,7 +18,6 @@ const addPlace = async(req, res) => {
         dataForm.City,
         value.ID
     ]
-    console.log(dataNew)
 
     if (value != 0) {
         if (value.data.Subscribe > 0) {

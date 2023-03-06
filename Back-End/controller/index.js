@@ -1,7 +1,7 @@
 const GetCategory = require('../models/categories');
 const { Cities, Provinces } = require('../models/cities');
-const getPlace = require('./getPlaces');
-const userInfo = require('./userInfo');
+const getPlace = require('./placeCollection/getPlaces');
+const userInfo = require('./userCollection/userInfo');
 const redis = require('redis');
 
 const client = redis.createClient();

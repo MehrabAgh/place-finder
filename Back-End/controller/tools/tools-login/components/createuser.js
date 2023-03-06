@@ -1,5 +1,5 @@
-const con = require("../../../config/database");
-const Model = require("../../../models/users");
+const con = require("../../../../config/database");
+const Model = require("../../../..//models/users");
 const { sendsms } = require("../sendsms");
 const { CheckInput } = require("../other/checkinputs");
 const redis = require('redis');

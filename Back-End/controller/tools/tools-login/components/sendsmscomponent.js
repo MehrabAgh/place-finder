@@ -1,6 +1,6 @@
 //function for send sms component 
 const { CreateUser } = require("./createuser")
-const con = require("../../../config/database");
+const con = require("../../../../config/database");
 const { sendsms } = require("../sendsms");
 
 const redis = require('redis');

@@ -1,4 +1,4 @@
-const con = require("../../config/database");
+const con = require("../../../config/database");
 const verifySms = require("./APIs/smssenderAPI");
 
 exports.sendsms = (...param) => {
