@@ -27,6 +27,7 @@ app.use(require("./routes/loginCollection/logout"))
 app.use(require("./routes/userCollection/getuser"))
 app.use(require("./routes/placeCollection/placedetail"))
 app.use(require("./routes/placeCollection/changecategory"))
+app.use(require("./routes/placeCollection/addplace"))
 app.use(require("./routes/userCollection/changecity"))
 
 app.use(require('./routes/404'))

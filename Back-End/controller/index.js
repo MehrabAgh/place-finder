@@ -1,10 +1,8 @@
 const GetCategory = require('../models/categories');
-const Cities = require('../models/cities');
+const { Cities, Provinces } = require('../models/cities');
 const getPlace = require('./getPlaces');
 const userInfo = require('./userInfo');
 const redis = require('redis');
-
-const VerifyEmail = require("./tools-login/APIs/emailsenderAPI")
 
 const client = redis.createClient();
 
@@ -13,19 +11,19 @@ const client = redis.createClient();
 })();
 
 
-exports.index = (req, res) => {
+exports.index = async(req, res) => {
 
-    console.log(VerifyEmail("vinodevs.official@gmail.com", "wwwww"))
-        // const _userInfo = await userInfo();
-        // let currCity = "";
-        // if (_userInfo != null)
-        //     currCity = _userInfo.data.City;
-        // else currCity = await client.get('cityCache');
+    const _userInfo = await userInfo();
+    let currCity = "";
+    if (_userInfo != null)
+        currCity = _userInfo.data.City;
+    else currCity = await client.get('cityCache');
+
+    const getCities = await Cities();
+    const getProvinces = await Provinces();
+    const _places = await getPlace(1);
+    const _categories = await GetCategory();
 
 
-    // const _places = await getPlace(currCity);
-    // const _categories = await GetCategory();
-
-
-    // res.json({ places: _places, userInfo: _userInfo, cities: Cities, categories: _categories })
+    res.json({ places: _places, userInfo: _userInfo, cities: getCities, categories: _categories, provinces: getProvinces })
 }

@@ -12,6 +12,8 @@ async function userInfo() {
     const value = await client.get('userCache');
     let jval = JSON.parse(value)
     console.log(value)
+    if (value === null) return 0
+
     if (jval.PhoneNumberUser != "") {
 
         return new Promise((resolve, reject) => {

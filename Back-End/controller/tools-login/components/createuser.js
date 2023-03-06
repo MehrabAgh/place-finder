@@ -16,7 +16,7 @@ exports.CreateUser = async(req, res, inp) => {
     const city = await client.get('cityCache');
 
     let model = new Model(null, " ", " ", !state ? inp : " ", state ? inp : " ", 'defualt',
-        city != null || city != " " ? city : "")
+        city != null ? city : null)
 
     let data = [
         model.firstname,
