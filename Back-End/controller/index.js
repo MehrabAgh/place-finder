@@ -16,8 +16,11 @@ exports.index = async(req, res) => {
     const _userInfo = await userInfo();
     let currCity = "";
     if (_userInfo != null)
-        currCity = _userInfo.data.City;
-    else currCity = await client.get('cityCache');
+    //  currCity = _userInfo.data.City;
+        console.log(_userInfo.data)
+    else res.json({ ca: "ss" })
+
+    //else currCity = await client.get('cityCache');
 
     const getCities = await Cities();
     const getProvinces = await Provinces();
